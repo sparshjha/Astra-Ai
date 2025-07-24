@@ -1,5 +1,6 @@
 package com.example.aisecretary.ai.memory
 
+import com.example.aisecretary.utils.Logger
 import com.example.aisecretary.data.local.database.dao.MemoryFactDao
 import com.example.aisecretary.data.local.database.dao.MessageDao
 import com.example.aisecretary.data.model.MemoryFact
@@ -42,6 +43,7 @@ class MemoryManager(
                 )
                 
                 // Save to database
+                Logger.i("MemoryManager", "Add", "Saving memory from response: $key -> $value")
                 memoryFactDao.insertMemoryFact(memoryFact)
                 
                 return MemoryDetectionResult(
@@ -193,6 +195,7 @@ class MemoryManager(
     // Clear all memory
     suspend fun clearAllMemory() {
         memoryFactDao.deleteAllMemoryFacts()
+        Logger.i("MemoryManager", "Clear", "All memory cleared")
     }
 }
 
