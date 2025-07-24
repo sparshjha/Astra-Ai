@@ -97,6 +97,18 @@ ai-secretary-app
    ```
 4. Ensure you have the necessary SDKs and dependencies installed.
 5. Build and run the application on an Android device or emulator.
+6. Structured Logging
+
+A new centralized logging utility has been added at utils/Logger.kt.
+
+*Features:*
+- Log levels: DEBUG, INFO, WARN, ERROR
+- JSON-formatted logs with timestamps and component names
+- File-based logging with rotation (5 files, 1MB each)
+- Supports log level filtering and component tagging
+- Logger initialized in MyApplication.kt
+
+Useful for debugging and tracking issues in development and production.
 
 ### Model Configuration
 The LLM model is configurable in `secrets.properties`. For low-RAM systems, use lightweight alternatives:
